@@ -2,6 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.tweetBox__icons {
-  @apply h-5 w-5 transition-transform duration-150 ease-out hover:scale-150;
-}

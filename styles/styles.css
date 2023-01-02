@@ -1,0 +1,7 @@
+.createTweetBox__icons {
+  @apply h-5 w-5 transition-transform duration-150 ease-out hover:scale-150;
+}
+
+.feedTweet__icons {
+  @apply flex cursor-pointer items-center space-x-3 text-gray-400;
+}

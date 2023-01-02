@@ -31,11 +31,11 @@ function TweetBox() {
           />
           <div className="flex items-center">
             <div className="flex space-x-2 text-twitter flex-1">
-              <PhotoIcon className=" cursor-pointer tweetBox__icons" />
-              <MagnifyingGlassCircleIcon className=" cursor-not-allowed tweetBox__icons" />
-              <FaceSmileIcon className=" cursor-not-allowed tweetBox__icons" />
-              <CalendarIcon className=" cursor-not-allowed tweetBox__icons" />
-              <MapPinIcon className=" cursor-not-allowed tweetBox__icons" />
+              <PhotoIcon className=" cursor-pointer createTweetBox__icons" />
+              <MagnifyingGlassCircleIcon className=" cursor-not-allowed createTweetBox__icons" />
+              <FaceSmileIcon className=" cursor-not-allowed createTweetBox__icons" />
+              <CalendarIcon className=" cursor-not-allowed createTweetBox__icons" />
+              <MapPinIcon className=" cursor-not-allowed createTweetBox__icons" />
             </div>
             <button
               disabled={!input}
