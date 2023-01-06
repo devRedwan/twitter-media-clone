@@ -7,10 +7,10 @@ import {
 } from "@heroicons/react/24/outline";
 import { useSession } from "next-auth/react";
 import { Dispatch, MouseEvent, SetStateAction, useRef, useState } from "react";
-import { Tweet, TweetBody } from "../typings";
-import AvatarImageIcon from "../public/avatar-man-icon.jpg";
-import { fetchTweets } from "../utils/fetchTweets";
 import { toast } from "react-hot-toast";
+import AvatarImageIcon from "../public/avatar-man-icon.jpg";
+import { Tweet, TweetBody } from "../typings";
+import { fetchTweets } from "../utils/fetchTweets";
 
 interface Props {
   setTweets: Dispatch<SetStateAction<Tweet[]>>;
@@ -43,22 +43,17 @@ function TweetBox({ setTweets }: Props) {
       profileImg: session?.user?.image || { AvatarImageIcon },
     };
 
-    const result = await fetch(`/api/addTweet`, {
+    await fetch(`/api/addTweet`, {
       body: JSON.stringify(tweetInfo),
       method: "POST",
     });
 
-    const json = await result.json();
     const newTweets = await fetchTweets();
     setTweets(newTweets);
 
     toast("Tweet Posted", {
       icon: "🚀",
     });
-
-    setTimeout(() => {
-      return json;
-    }, 1000);
   };
 
   const handleSubmit = (

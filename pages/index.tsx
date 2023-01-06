@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Home = ({ tweets }: Props) => {
-  console.log("tweets", tweets);
+  
   return (
     <div className="lg:max-w-6xl mx-auto max-h-screen overflow-hidden">
       <Head>
