@@ -28,6 +28,8 @@ function Tweets({ tweet }: Props) {
     setComments(comments);
   };
 
+
+
   useEffect(() => {
     refreshComments();
   }, []);

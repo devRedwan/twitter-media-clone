@@ -29,7 +29,7 @@ export default async function handler(
   const apiEndPoint = `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-06-07/data/mutate/${process.env.NEXT_PUBLIC_SANITY_DATASET}`;
   const result = await fetch(apiEndPoint, {
     headers: {
-      "content-type": "apllication/json",
+      "content-type": "application/json",
       Authorization: `Bearer ${process.env.SANITY_API_TOKEN}`,
     },
     body: JSON.stringify(mutations),
