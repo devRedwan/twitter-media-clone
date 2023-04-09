@@ -15,7 +15,12 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const tweets: Tweet[] = await sanityClient.fetch(feedQuery);
-
-  res.status(200).json({ tweets });
+  try {
+    const tweets: Tweet[] = await sanityClient.fetch(feedQuery);
+    console.log("Fetched tweets in API route:", tweets);
+    res.status(200).json({ tweets });
+  } catch (error) {
+    console.error("Error in /api/getTweets handler:", error);
+    res.status(500).json({ tweets: [] });
+  }
 }

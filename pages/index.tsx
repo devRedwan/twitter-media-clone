@@ -13,7 +13,6 @@ interface Props {
 }
 
 const Home = ({ tweets }: Props) => {
-  
   return (
     <div className="lg:max-w-6xl mx-auto max-h-screen overflow-hidden">
       <Head>
@@ -33,12 +32,21 @@ const Home = ({ tweets }: Props) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const tweets = await fetchTweets();
-
-  return {
-    props: {
-      tweets,
-    },
-  };
+export const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const tweets = await fetchTweets();
+    console.log("Fetched tweets:", tweets);
+    return {
+      props: {
+        tweets,
+      },
+    };
+  } catch (error) {
+    console.error("Error in getServerSideProps:", error);
+    return {
+      props: {
+        tweets: [],
+      },
+    };
+  }
 };
