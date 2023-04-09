@@ -11,6 +11,7 @@ import { toast } from "react-hot-toast";
 import AvatarImageIcon from "../public/avatar-man-icon.jpg";
 import { Tweet, TweetBody } from "../typings";
 import { fetchTweets } from "../utils/fetchTweets";
+import Image from "next/image";
 
 interface Props {
   setTweets: Dispatch<SetStateAction<Tweet[]>>;
@@ -69,10 +70,12 @@ function TweetBox({ setTweets }: Props) {
 
   return (
     <div className="flex space-x-2 p-5">
-      <img
+      <Image
         className="h-14 w-14 rounded-full object-cover mt-4"
         src={session?.user?.image || AvatarImageIcon}
         alt="twitter feed box"
+        width={500}
+        height={500}
       />
 
       <div className="flex flex-1 items-center pl-2">
