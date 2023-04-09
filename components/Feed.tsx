@@ -46,8 +46,8 @@ function Feed({ tweets: tweetsProp }: Props) {
           tweets.map((tweet) => <Tweets key={tweet._id} tweet={tweet} />)
         ) : (
           <h1 className="text-center my-5 text-2xl">
-            Please sign in to view all{" "}
-            <span className="text-twitter">tweets</span>
+            Please sign in to post a new{" "}
+            <span className="text-twitter">tweet.</span>
           </h1>
         )}
       </div>
