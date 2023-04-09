@@ -1,6 +1,6 @@
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Tweet } from "../typings";
 import { fetchTweets } from "../utils/fetchTweets";
@@ -23,6 +23,12 @@ function Feed({ tweets: tweetsProp }: Props) {
       id: refreshToast,
     });
   };
+
+  useEffect(() => {
+    if (tweets.length === 0) {
+      handleRefresh();
+    }
+  }, []);
 
   return (
     <div className="col-span-7 lg:col-span-5 border-x max-h-screen overflow-scroll scrollbar-hide">
