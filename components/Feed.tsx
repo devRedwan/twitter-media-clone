@@ -1,10 +1,11 @@
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
-import { Tweet, TweetBody } from "../typings";
-import TweetBox from "./TweetBox";
-import Tweets from "./Tweet";
-import { fetchTweets } from "../utils/fetchTweets";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { Tweet } from "../typings";
+import { fetchTweets } from "../utils/fetchTweets";
+import Tweets from "./Tweet";
+import TweetBox from "./TweetBox";
 
 interface Props {
   tweets: Tweet[];
@@ -12,6 +13,7 @@ interface Props {
 
 function Feed({ tweets: tweetsProp }: Props) {
   const [tweets, setTweets] = useState<Tweet[]>(tweetsProp);
+  const { data: session } = useSession();
 
   const handleRefresh = async () => {
     const refreshToast = toast.loading("Refreshing...");
@@ -34,9 +36,14 @@ function Feed({ tweets: tweetsProp }: Props) {
       <TweetBox setTweets={setTweets} />
 
       <div>
-        {tweets.map((tweet) => (
-          <Tweets key={tweet._id} tweet={tweet} />
-        ))}
+        {session ? (
+          tweets.map((tweet) => <Tweets key={tweet._id} tweet={tweet} />)
+        ) : (
+          <h1 className="text-center my-5 text-2xl">
+            Please sign in to view all{" "}
+            <span className="text-twitter">tweets</span>
+          </h1>
+        )}
       </div>
     </div>
   );
