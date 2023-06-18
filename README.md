@@ -1,6 +1,7 @@
 # Twitter-Clone
 
-![Twitter](https://www.redwanahmed.com/assets/twitterclone.PNG "Twitter Clone")
+![Twitter](https://github.com/devRedwan/twitter-media-clone/assets/24552861/acaab312-455e-4d46-bdce-42910466482c)
+
 
 ## About
 Twitter-clone is a social-media networking app that inclues CRUD application. It is based on the original Twitter.com app that allows users to post tweets and comments authenticated by nextAuth authentication
